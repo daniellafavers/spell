@@ -1,0 +1,31 @@
+#!/bin/bash
+echo "-----------------------------------------"
+echo Make sure the spell program is built
+cd ..
+make
+cd examples
+echo
+echo "-----------------------------------------"
+cmd="../spell -d dictionaries/sample.dict -c"
+echo "Running '$cmd'"
+$cmd
+echo 
+echo "This shows the line with a misspelled word highlighted in red."
+echo "At the end of the program, the list of unmatched words is displayed for the file."
+echo
+echo "-----------------------------------------"
+cmd="../spell -d dictionaries/sample.dict -c -n"
+echo "Running '$cmd' to show near matches"
+$cmd
+echo 
+echo "Now the output shows near matches in yellow, but near matches are not included in"
+echo "the final list of misspelled words."
+echo
+echo "-----------------------------------------"
+cmd="../spell -d dictionaries -c"
+echo "Running '$cmd' to show using multiple dictionaries in a directory"
+$cmd
+echo 
+echo "Now the names.dict dictionary file is checked as well so there are no misspelled words"
+echo "so there is no output from the program."
+
